@@ -1,8 +1,10 @@
 package com.dhanux.toolinventoryservice.service;
 
+import com.dhanux.toolinventoryservice.dto.ToolInventoryDto;
 import com.dhanux.toolinventoryservice.model.ToolInventory;
-import com.dhanux.toolinventoryservice.response.Response;
-import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
+
+import java.util.List;
 
 /**
  * @author Dhanujaya(Dhanu)
@@ -11,4 +13,8 @@ import org.springframework.http.ResponseEntity;
  */
 public interface ToolInventoryService {
     ToolInventory save(ToolInventory toolInventory);
+    List<ToolInventory> getAll();
+    ToolInventory update(int id, ToolInventory inventoryDto);
+    void delete(int id);
+    ToolInventory getById(int id);
 }
