@@ -2,6 +2,7 @@ package com.dhanux.toolinventoryservice.exception;
 
 import com.dhanux.toolinventoryservice.dto.ToolInventoryDto;
 import com.dhanux.toolinventoryservice.response.Response;
+import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -19,7 +20,13 @@ public class GlobalExceptionHandler extends Exception{
         return new Response<>(ex.getMessage(), null, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(RuntimeException.class)
     public Response<ToolInventoryDto> handleRuntimeException(RuntimeException ex) {
         return new Response<>(ex.getMessage(), null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(FileSizeLimitExceededException.class)
+    public Response<ToolInventoryDto> handleFilesizeLimitExceededException(FileSizeLimitExceededException ex) {
+        return new Response<>(ex.getMessage(), null, HttpStatus.CONTENT_TOO_LARGE);
     }
 }

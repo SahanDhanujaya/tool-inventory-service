@@ -1,8 +1,10 @@
 package com.dhanux.toolinventoryservice.dto;
 
+import com.dhanux.toolinventoryservice.validation.ValidImage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,12 +18,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class ToolInventoryDto {
-    private Integer id;
-    private Integer userId;
+    private String id;
+    private String userEmail;
     private String title;
     private String description;
     private Double price;
-    private String image;
+    private MultipartFile image;
     private String category;
     private String location;
     private List<String> requirements;

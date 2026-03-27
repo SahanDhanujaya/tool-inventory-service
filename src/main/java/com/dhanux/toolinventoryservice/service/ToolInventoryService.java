@@ -2,9 +2,10 @@ package com.dhanux.toolinventoryservice.service;
 
 import com.dhanux.toolinventoryservice.dto.ToolInventoryDto;
 import com.dhanux.toolinventoryservice.model.ToolInventory;
-import jakarta.validation.Valid;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Dhanujaya(Dhanu)
@@ -12,9 +13,10 @@ import java.util.List;
  * @ProjectDetails tool-inventory-service
  */
 public interface ToolInventoryService {
-    ToolInventory save(ToolInventory toolInventory);
+    ToolInventory save(ToolInventoryDto dto) throws IOException;
     List<ToolInventory> getAll();
-    ToolInventory update(int id, ToolInventory inventoryDto);
-    void delete(int id);
-    ToolInventory getById(int id);
+    ToolInventory update(UUID id, ToolInventoryDto inventoryDto);
+    void delete(UUID id);
+    ToolInventory getById(UUID id);
+    byte[] getImge(UUID id);
 }

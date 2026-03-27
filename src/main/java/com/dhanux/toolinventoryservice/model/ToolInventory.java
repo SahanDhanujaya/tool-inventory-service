@@ -8,9 +8,11 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Dhanujaya(Dhanu)
@@ -24,9 +26,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ToolInventory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private Integer userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    private String userEmail;
     private String title;
     private String description;
     private Double price;

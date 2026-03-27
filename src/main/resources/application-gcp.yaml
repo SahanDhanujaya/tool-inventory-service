@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://136.110.59.118:3306/tool_inventory_db?createDatabaseIfNotExist=true
+    username: root
+    password: 95334238Sd$
+    driver-class-name: com.mysql.cj.jdbc.Driver
